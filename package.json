@@ -7,13 +7,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "flowbite-react patch"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
     "@tailwindcss/vite": "^4.1.3",
+    "flowbite-react": "^0.11.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
     "react-scroll": "^1.9.3",
     "tailwindcss": "^4.1.3"
   },
