@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import MenuItem from "./MenuItem";
 
 const Nav = () => {
   const authPathPrefix = "/auth";
@@ -6,16 +7,10 @@ const Nav = () => {
   return (
     <nav className="w-full  h-20 flex justify-around items-center py-5 gap-3 space-x-3">
       {/* Menu de navegacion */}
-      <ul className="flex  w-90 justify-evenly">
-        <li>
-          <a href="">Inicio</a>
-        </li>
-        <li>
-          <a href="">Informacion</a>
-        </li>
-        <li>
-          <a href="">Cursos</a>
-        </li>
+      <ul className="flex w-90 justify-evenly">
+        <MenuItem title={"Inicio"} id="inicio" />
+        <MenuItem title={"Informacion"} id="information" />
+        <MenuItem title={"Cursos"} id="courses" />
       </ul>
 
       {/* Logo */}
