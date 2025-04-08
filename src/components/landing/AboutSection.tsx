@@ -5,7 +5,7 @@ const AboutSection = () => {
     <section className=" h-[50em] grid grid-cols-2 gap-6" id="information">
       <div className="flex justify-center items-center ">
         <div className="w-2xl ">
-          <AboutImage path="./imageInfo.webp" />
+          <AboutImage path="./images/imageInfo.webp" />
         </div>
       </div>
       <div>
