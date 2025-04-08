@@ -1,14 +1,11 @@
+import AboutImage from "./AboutImage";
+
 const AboutSection = () => {
   return (
     <section className=" h-[50em] grid grid-cols-2 gap-6" id="information">
       <div className="flex justify-center items-center ">
-        <div></div>
         <div className="w-2xl ">
-          <img
-            src={"./images/imageInfo.webp"}
-            alt="Imagen Cooperativa"
-            className="w-2xl h-xl"
-          />
+          <AboutImage path="./imageInfo.webp" />
         </div>
       </div>
       <div>
