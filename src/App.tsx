@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="/auth/login" element={<LoginPage />} index />
-          <Route path="/auth/singup" element={<SignupPage />} />
+          <Route path="/auth/signup" element={<SignupPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

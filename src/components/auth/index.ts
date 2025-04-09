@@ -1,3 +1,4 @@
 import FormField from "./FormField";
 import Form from "./Form";
-export { FormField, Form };
+import HeroAuthImage from "./svg/HeroAuthImage";
+export { FormField, Form, HeroAuthImage };

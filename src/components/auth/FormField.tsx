@@ -19,9 +19,11 @@ const FormField = ({
   label,
 }: FormFieldProps) => {
   return (
-    <div className="max-w-xl w-full mb-3">
+    <div className="w-lg mb-3">
       <div className="mb-2 block">
-        <Label htmlFor={idField}>{label}</Label>
+        <Label htmlFor={idField} className="text-blue-700">
+          {label}
+        </Label>
       </div>
       <TextInput
         id={idField}

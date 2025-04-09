@@ -1,5 +1,5 @@
 const SignupPage = () => {
-  return <section>Singup</section>;
+  return <section className="">Singup</section>;
 };
 
 export default SignupPage;

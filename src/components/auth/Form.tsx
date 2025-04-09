@@ -3,11 +3,7 @@ export type FormProps = {
 };
 
 const Form = ({ children }: FormProps) => {
-  return (
-    <form className="h-full p-2 rounded-2xl bg-white flex  flex-col  items-center py-5 px-7">
-      {children}
-    </form>
-  );
+  return <form className="mx-auto p-5">{children}</form>;
 };
 
 export default Form;
