@@ -21,7 +21,12 @@ const Nav = () => {
       {/* Botones de ingreso */}
       <div className="w-90 flex  h-15 items-center-safe  justify-evenly text-md">
         <div>
-          <Link to={`${authPathPrefix}/signup`}>Registrarse</Link>
+          <Link
+            to={`${authPathPrefix}/signup`}
+            className="py-2.5 px-4 rounded-3xl font-bold text-blue-700 border-2  hover:bg-blue-700 hover:text-white hover:border hover:border-[#074699] transition-all"
+          >
+            Registrarse
+          </Link>
         </div>
         <div className="py-2 px-3 rounded-3xl font-bold text-white bg-blue-700 hover:bg-white hover:text-[#074799] hover:border hover:border-[#074699] transition-all">
           <Link to={`${authPathPrefix}/login`}>Iniciar Sesion</Link>
