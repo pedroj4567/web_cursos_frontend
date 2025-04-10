@@ -31,7 +31,7 @@ const SignupPage = () => {
         />
         <FormField
           idField="email"
-          label="Correo Electronico"
+          label="Correo Electrónico"
           placeholder="Ej: correo@correo.com"
           required={true}
           type={"email"}
@@ -39,7 +39,7 @@ const SignupPage = () => {
         />
         <FormField
           idField="email"
-          label="Correo Electronico"
+          label=" Confirme su Correo Electrónico"
           placeholder="Ej: correo@correo.com"
           required={true}
           type={"email"}
