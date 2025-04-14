@@ -1,5 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LandingPage, LoginPage, SignupPage } from "./pages";
+import {
+  ChangePassword,
+  LandingPage,
+  LoginPage,
+  RecoverPassword,
+  SignupPage,
+} from "./pages";
 import { AuthLayout } from "./layouts";
 
 function App() {
@@ -13,6 +19,11 @@ function App() {
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="/auth/login" element={<LoginPage />} index />
           <Route path="/auth/signup" element={<SignupPage />} />
+          <Route path="/auth/recoverPassword" element={<RecoverPassword />} />
+          <Route
+            path="/auth/changePassword/:token"
+            element={<ChangePassword />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>
