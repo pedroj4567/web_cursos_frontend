@@ -1,4 +1,5 @@
 import { HiMail } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import { Form, FormField } from "../../components/auth";
 import { Button } from "flowbite-react";
 
@@ -26,6 +27,12 @@ const RecoverPassword = () => {
 
         <Button className="mt-5 w-lg cursor-pointer">Enviar correo</Button>
       </Form>
+
+      <div className=" w-lg mx-auto font-bold text-blue-700 text-center">
+        <Link to={"/auth/login"} className="">
+          Regresar al login
+        </Link>
+      </div>
     </section>
   );
 };
