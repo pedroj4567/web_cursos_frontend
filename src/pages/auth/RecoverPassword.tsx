@@ -8,7 +8,7 @@ const RecoverPassword = () => {
     <section className="flex  justify-center flex-col px-5">
       <Form>
         <div className="  text-3xl text-blue-700 font-bold mb-5">
-          <h1>Recuperacion de contraseña</h1>
+          <h1>Recuperar contraseña</h1>
         </div>
         <div className=" text-lg text-slate-500 mb-4 w-lg">
           <p>
