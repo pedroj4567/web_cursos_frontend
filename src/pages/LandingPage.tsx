@@ -9,7 +9,7 @@ import {
 
 const LandingPage = () => {
   return (
-    <main className="bg-red-[#F1EFEC] h-screen">
+    <main className="h-screen">
       <Nav />
       <Hero />
       <CounterSection />

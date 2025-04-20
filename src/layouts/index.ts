@@ -1,3 +1,3 @@
 import AuthLayout from "./AuthLayout";
-
-export { AuthLayout };
+import StudentsLayout from "./CoursesLayout";
+export { AuthLayout, StudentsLayout };
