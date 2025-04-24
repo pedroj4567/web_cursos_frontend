@@ -6,6 +6,7 @@ import {
   LoginPage,
   ProfilePage,
   RecoverPassword,
+  SearchPage,
   SignupPage,
 } from "./pages";
 import { AuthLayout, StudentsLayout } from "./layouts";
@@ -32,6 +33,7 @@ function App() {
           <Route path="/courses" element={<CoursePage />} index />
           <Route path="/courses/favorites" element={<FavoritiesPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/courses/search" element={<SearchPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
