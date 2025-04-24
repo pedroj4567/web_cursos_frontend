@@ -7,6 +7,7 @@ import CoursePage from "./courses/CoursePage";
 import FavoritiesPage from "./courses/FavoritesPage";
 import { ProfilePage } from "./courses/ProfilePage";
 import SearchPage from "./courses/SearchPage";
+import CourseDetailPage from "./courses/CourseDetailPage";
 
 export {
   LandingPage,
@@ -17,4 +18,5 @@ export {
   ProfilePage,
   FavoritiesPage,
   SearchPage,
+  CourseDetailPage,
 };

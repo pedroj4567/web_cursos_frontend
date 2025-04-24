@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
+  CourseDetailPage,
   CoursePage,
   FavoritiesPage,
   LandingPage,
@@ -34,6 +35,7 @@ function App() {
           <Route path="/courses/favorites" element={<FavoritiesPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/courses/search" element={<SearchPage />} />
+          <Route path="/courses/:id" element={<CourseDetailPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
