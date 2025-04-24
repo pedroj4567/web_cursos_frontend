@@ -145,7 +145,7 @@ const CourseDetailPage = () => {
           )}
         </Button>
       </div>
-
+      {}
       {/* Título y descripción */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
