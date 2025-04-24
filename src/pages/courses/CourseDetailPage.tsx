@@ -41,8 +41,7 @@ const CourseDetailPage = () => {
   const { courseId } = useParams<{ courseId: string }>();
   const [isFavorite, setIsFavorite] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  setError(null);
+  const [error] = useState<string | null>(null);
   console.log(courseId);
 
   // Datos simulados del curso
