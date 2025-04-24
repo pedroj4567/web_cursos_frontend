@@ -69,6 +69,7 @@ const Navbar = () => {
               />
             </svg>
           </Link>
+          {/*  */}
         </nav>
 
         <div className="flex justify-evenly items-center w-lg">
