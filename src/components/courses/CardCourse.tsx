@@ -23,29 +23,36 @@ const CardCourse = ({
   };
 
   return (
-    <Card
-      className="max-w-sm"
-      renderImage={() => (
-        <img
-          width={500}
-          height={500}
-          src={image}
-          alt="Logo curso"
-          draggable={"false"}
-        />
-      )}
-    >
-      <h5 className="text-2xl font-bold  text-gray-900 ">{title}</h5>
-      <span className="text-sm bg-blue-600 w-28 text-center text-white font-bold rounded-2xl px-2">
-        {level}
-      </span>
+    <Card className="max-w-sm h-full flex flex-col">
+      {/* Imagen (se mantiene igual que tu versión original) */}
+      <img
+        width={500}
+        height={500}
+        src={image}
+        alt="Logo curso"
+        draggable={false}
+        className="w-full object-cover"
+      />
 
-      <p className="font-normal text-gray-700 dark:text-gray-400">
-        {shortDescription}
-      </p>
-      <Button className="cursor-pointer" onClick={handlerClick}>
-        Ver Curso
-      </Button>
+      {/* Contenido de texto con altura fija */}
+      <div className="flex flex-col h-48 ">
+        <h5 className="text-xl font-bold text-gray-900 dark:text-white line-clamp-2">
+          {title}
+        </h5>
+
+        <span className="text-sm bg-blue-600 text-white font-bold rounded-2xl px-2 w-fit mt-2">
+          {level}
+        </span>
+
+        <p className="font-normal text-gray-700 dark:text-gray-400 line-clamp-3 mt-2 flex-growm pb-2">
+          {shortDescription}
+        </p>
+
+        {/* Botón siempre en la parte inferior */}
+        <Button className="w-full mt-auto" onClick={handlerClick}>
+          Ver Curso
+        </Button>
+      </div>
     </Card>
   );
 };
