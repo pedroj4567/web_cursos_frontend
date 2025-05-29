@@ -36,7 +36,7 @@ const CardCourse = ({
 
       {/* Contenido de texto con altura fija */}
       <div className="flex flex-col h-48 ">
-        <h5 className="text-xl font-bold text-gray-900 dark:text-white line-clamp-2">
+        <h5 className="text-md font-bold text-gray-900  line-clamp-2">
           {title}
         </h5>
 
@@ -44,7 +44,7 @@ const CardCourse = ({
           {level}
         </span>
 
-        <p className="font-normal text-gray-700 dark:text-gray-400 line-clamp-3 mt-2 flex-growm pb-2">
+        <p className="font-normal text-gray-800  line-clamp-3 mt-2 flex-growm pb-6">
           {shortDescription}
         </p>
 

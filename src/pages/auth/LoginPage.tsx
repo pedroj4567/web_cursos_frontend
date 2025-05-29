@@ -1,16 +1,23 @@
 import { Form, FormField } from "../../components/auth";
 import { Button } from "flowbite-react";
-
 import { HiMail } from "react-icons/hi";
 import { IoEyeSharp } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useLogin } from "../../hooks/useLogin";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const LoginPage = () => {
-  const navigate = useNavigate();
+  const { register, errors, onSubmit } = useLogin();
 
   return (
     <section className="h-full relative">
+      <ToastContainer />
       <div className="flex flex-col justify-center h-full bg-white px-10 rounded-2xl">
-        <Form>
+        <Form
+          className="flex flex-col items-center justify-center"
+          onSubmit={onSubmit}
+        >
           <div className="text-left text-4xl mb-7 font-bold text-blue-700">
             <h2>¡Bienvenido nuevamente!</h2>
             <span className="text-sm text-slate-500">
@@ -25,8 +32,9 @@ const LoginPage = () => {
             required={true}
             type="email"
             label="Correo electrónico"
+            error={errors.email?.message}
+            {...register("email")}
           />
-
           <FormField
             icon={IoEyeSharp}
             idField="password"
@@ -34,8 +42,9 @@ const LoginPage = () => {
             required={true}
             type="password"
             label="Contraseña"
+            error={errors.password?.message}
+            {...register("password")}
           />
-
           <div className="w-lg px-1">
             <div>
               <span>
@@ -49,13 +58,7 @@ const LoginPage = () => {
               </span>
             </div>
           </div>
-
-          <Button
-            className="w-lg mt-8 cursor-pointer"
-            onClick={() => {
-              navigate("/courses");
-            }}
-          >
+          <Button type="submit" className="w-lg mt-8 cursor-pointer">
             Ingresar
           </Button>
           <div className="text-center mt-4">

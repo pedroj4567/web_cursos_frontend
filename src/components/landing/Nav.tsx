@@ -3,7 +3,7 @@ import MenuItem from "./MenuItem";
 
 const Nav = () => {
   return (
-    <nav className="w-full  h-20 flex justify-around items-center py-5 gap-3 space-x-3">
+    <nav className="w-full  h-20 flex justify-around items-center py-5 mt-2 gap-3 space-x-3">
       {/* Menu de navegacion */}
       <ol className="flex w-90 justify-evenly">
         <MenuItem title={"Inicio"} id="inicio" />
@@ -13,7 +13,12 @@ const Nav = () => {
 
       {/* Logo */}
       <div className=" w-90 flex items-center justify-center">
-        <h1 className="text-2xl text-blue-700 font-bold">HPDU</h1>
+        <img
+          src={"./images/logo.webp"}
+          alt="Logo de la herramienta profesional de estudio"
+          height={20}
+          width={180}
+        />
       </div>
 
       {/* Botones de ingreso */}

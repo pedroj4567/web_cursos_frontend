@@ -1,14 +1,20 @@
 import { useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Avatar,
   Dropdown,
   DropdownDivider,
   DropdownItem,
 } from "flowbite-react";
+import { AuthService } from "../../services";
 
 const Navbar = () => {
   const { pathname } = useLocation();
+  const navigator = useNavigate();
+  const onclickLogout = () => {
+    AuthService.logout();
+    navigator("/auth/login");
+  };
 
   const isActive = useCallback((path: string) => pathname === path, [pathname]);
 
@@ -69,7 +75,6 @@ const Navbar = () => {
               />
             </svg>
           </Link>
-          {/*  */}
         </nav>
 
         <div className="flex justify-evenly items-center w-lg">
@@ -93,9 +98,7 @@ const Navbar = () => {
             </DropdownItem>
 
             <DropdownDivider />
-            <DropdownItem>
-              <Link to={"/"}>Cerrar Sesion</Link>
-            </DropdownItem>
+            <DropdownItem onClick={onclickLogout}>Cerrar Sesion</DropdownItem>
           </Dropdown>
         </div>
       </div>

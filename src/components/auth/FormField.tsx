@@ -5,10 +5,11 @@ export type FormFieldProps = {
   type: string;
   icon: IconType;
   placeholder: string;
-  required: boolean;
+  required?: boolean;
   idField: string;
   label: string;
-};
+  error?: string;
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
 const FormField = ({
   icon,
@@ -17,6 +18,8 @@ const FormField = ({
   type,
   idField,
   label,
+  error,
+  ...rest
 }: FormFieldProps) => {
   return (
     <div className="w-lg mb-3">
@@ -31,7 +34,9 @@ const FormField = ({
         rightIcon={icon}
         placeholder={placeholder}
         required={required}
+        {...rest}
       />
+      {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
     </div>
   );
 };

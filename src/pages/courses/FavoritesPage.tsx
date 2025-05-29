@@ -1,83 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CardCourse } from "../../components/courses";
 import { Arrow } from "../../components/icons";
 import { Pagination } from "flowbite-react";
 import { Link } from "react-router-dom";
+import { AuthService } from "../../services";
 
 const FavoritiesPage = () => {
-  // Mock data for favorite courses
-  const favoriteCourses = [
-    {
-      courseId: "1",
-      image:
-        "https://wpengine.com/wp-content/uploads/2021/07/jsheader-1024x535.png",
-      level: "intermedio",
-      shortDescription: "Curso de desarrollo web con Javascript",
-      title: "Javascript Moderno",
-    },
-    {
-      courseId: "2",
-      image:
-        "https://wpengine.com/wp-content/uploads/2021/07/jsheader-1024x535.png",
-      level: "principiante",
-      shortDescription: "Aprende los fundamentos de React para crear app webs",
-      title: "React desde Cero",
-    },
-    {
-      courseId: "3",
-      image:
-        "https://wpengine.com/wp-content/uploads/2021/07/jsheader-1024x535.png",
-      level: "avanzado",
-      shortDescription: "Patrones de diseño en TypeScript",
-      title: "TypeScript Profesional",
-    },
-    {
-      courseId: "4",
-      image:
-        "https://wpengine.com/wp-content/uploads/2021/07/jsheader-1024x535.png",
-      level: "intermedio",
-      shortDescription: "Desarrollo de APIs con Node.js",
-      title: "Node.js Backend Master",
-    },
-    {
-      courseId: "5",
-      image:
-        "https://wpengine.com/wp-content/uploads/2021/07/jsheader-1024x535.png",
-      level: "principiante",
-      shortDescription: "Fundamentos de HTML y CSS",
-      title: "Frontend Essentials",
-    },
-    {
-      courseId: "6",
-      image:
-        "https://wpengine.com/wp-content/uploads/2021/07/jsheader-1024x535.png",
-      level: "avanzado",
-      shortDescription: "GraphQL para aplicaciones modernas",
-      title: "GraphQL Avanzado",
-    },
-    {
-      courseId: "7",
-      image:
-        "https://wpengine.com/wp-content/uploads/2021/07/jsheader-1024x535.png",
-      level: "intermedio",
-      shortDescription: "Testing en aplicaciones JavaScript",
-      title: "Testing Profesional",
-    },
-    {
-      courseId: "8",
-      image:
-        "https://wpengine.com/wp-content/uploads/2021/07/jsheader-1024x535.png",
-      level: "principiante",
-      shortDescription: "Introducción a bases de datos",
-      title: "SQL para Desarrolladores",
-    },
-  ];
-
-  // Pagination state
+  const [favoriteCourses, setFavoriteCourses] = useState<[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 4;
 
-  // Calculate current courses to display
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      try {
+        const user = await AuthService.getUserInSession();
+        console.log(user);
+        setFavoriteCourses(user.favoritesCourse || []);
+      } catch (error) {
+        setFavoriteCourses([]);
+      }
+    };
+    fetchFavorites();
+  }, []);
+
+  // Pagination logic
   const indexOfLastCourse = currentPage * coursesPerPage;
   const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
   const currentCourses = favoriteCourses.slice(
@@ -95,7 +41,6 @@ const FavoritiesPage = () => {
               <span className="text-blue-700 font-bold">Cursos Favoritos</span>
             </h1>
           </div>
-
           <div className="border text-center rounded-3xl bg-blue-700 text-white transition-all px-5 py-1">
             <Link
               to={"/courses/search"}
@@ -111,12 +56,12 @@ const FavoritiesPage = () => {
         <div className="grid p-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {currentCourses.map((course) => (
             <CardCourse
-              key={course.courseId}
-              courseId={course.courseId}
-              image={course.image}
-              level={course.level}
-              shortDescription={course.shortDescription}
-              title={course.title}
+              key={course.documentId}
+              courseId={course.id}
+              image={course.Banner}
+              level={course.Level}
+              shortDescription={course.ShortDescription || course.description}
+              title={course.Title}
             />
           ))}
         </div>
