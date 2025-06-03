@@ -201,14 +201,14 @@ const CourseDetailPage = () => {
             <p className="text-gray-700 mb-6">{course.Description}</p>
 
             <h3 className="text-xl font-bold mb-3">Lo que aprenderás</h3>
-            {/* <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
-              {course.syllabus.map((item, index) => (
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
+              {course.Topics.topics.map((item, index) => (
                 <li key={index} className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
                   <span>{item}</span>
                 </li>
               ))}
-            </ul> */}
+            </ul>
 
             <h3 className="text-xl font-bold mb-3">Requisitos</h3>
             <ul className="mb-6">
