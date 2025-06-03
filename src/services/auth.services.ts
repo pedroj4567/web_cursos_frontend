@@ -71,8 +71,8 @@ export const AuthService = {
       );
 
       if (data.jwt) {
-        localStorage.setItem("jwt", data.jwt);
-        localStorage.setItem("user", data.user.username);
+        // localStorage.setItem("jwt", data.jwt);
+        // localStorage.setItem("user", data.user.username);
         return data;
       }
 
@@ -110,7 +110,6 @@ export const AuthService = {
       const data = await strapiApi.get(
         `/users/${userParsed.id}?populate=favoritesCourse`
       );
-      console.log(data.data);
       return data.data;
     }
   },

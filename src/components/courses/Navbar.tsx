@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Avatar,
@@ -8,13 +8,26 @@ import {
 } from "flowbite-react";
 import { AuthService } from "../../services";
 
+export type User = {
+  username: string;
+};
 const Navbar = () => {
   const { pathname } = useLocation();
   const navigator = useNavigate();
+  const [user, setUser] = useState<User | null>(null);
+
   const onclickLogout = () => {
     AuthService.logout();
     navigator("/auth/login");
   };
+
+  useEffect(() => {
+    async function getUsers() {
+      const userData = await AuthService.getUserInSession();
+      setUser(userData); // Establece el usuario sin importar si es null o no
+    }
+    getUsers();
+  }, []);
 
   const isActive = useCallback((path: string) => pathname === path, [pathname]);
 
@@ -85,7 +98,7 @@ const Navbar = () => {
                 rounded
               >
                 <div className="space-y-1 font-medium dark:text-white">
-                  <div>Joe Doe</div>
+                  <div>{user?.username || "Usuario"}</div>
                 </div>
               </Avatar>
             }
@@ -93,7 +106,6 @@ const Navbar = () => {
             inline
           >
             <DropdownItem>
-              {" "}
               <Link to={"/profile"}>Perfil</Link>
             </DropdownItem>
 
