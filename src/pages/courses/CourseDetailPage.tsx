@@ -264,7 +264,7 @@ const CourseDetailPage = () => {
               onClick={enrollCourse}
             >
               <HiOutlineBookOpen className="mr-2" />
-              Ver Curso en YouTube
+              Ver Curso
             </Button>
           </Card>
         </div>

@@ -105,9 +105,9 @@ const Navbar = () => {
             arrowIcon={true}
             inline
           >
-            <DropdownItem>
+            {/* <DropdownItem>
               <Link to={"/profile"}>Perfil</Link>
-            </DropdownItem>
+            </DropdownItem> */}
 
             <DropdownDivider />
             <DropdownItem onClick={onclickLogout}>Cerrar Sesion</DropdownItem>

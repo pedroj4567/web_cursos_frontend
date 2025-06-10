@@ -115,7 +115,7 @@ const FavoritiesPage = () => {
               {currentCourses.map((course) => (
                 <CardCourse
                   key={course.documentId}
-                  courseId={course.id}
+                  courseId={course.documentId}
                   image={course.Banner}
                   level={course.Level}
                   shortDescription={
