@@ -68,5 +68,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     checkAuth,
   };
 
+  console.log("cambio nuevo");
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
