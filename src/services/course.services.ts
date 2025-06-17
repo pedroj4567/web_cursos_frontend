@@ -33,7 +33,7 @@ export const courseServices = {
   async getCourseById(id: string | number) {
     try {
       const { data } = await strapiApi.get(
-        `/courses?populate[1]=categories&filters[documentId][$eq]=${id}`
+        `/courses?populate=*&filters[documentId][$eq]=${id}`
       );
 
       if (!data.data || data.data.length === 0) {

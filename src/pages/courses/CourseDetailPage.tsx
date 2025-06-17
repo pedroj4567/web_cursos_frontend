@@ -14,10 +14,12 @@ import {
   HiArrowLeft,
   HiOutlineBookOpen,
   HiOutlineClock,
+  HiOutlineBookmark,
 } from "react-icons/hi";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { courseServices } from "../../services/course.services";
 import { AuthService } from "../../services";
+import CourseQuiz from "./QuizPage";
 
 type Course = {
   id: string;
@@ -45,6 +47,8 @@ const CourseDetailPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [course, setCourse] = useState<Course | null>(null);
   const [userId, setUserId] = useState();
+
+  const navigate = useNavigate();
   useEffect(() => {
     if (courseId) {
       const fetchData = async () => {
@@ -53,6 +57,7 @@ const CourseDetailPage = () => {
         try {
           const { data } = await courseServices.getCourseById(courseId);
           setCourse(data);
+          console.log(data);
 
           // Obtener favoritos del usuario para verificar si este curso está marcado
           const user = await AuthService.getUserInSession();
@@ -257,6 +262,17 @@ const CourseDetailPage = () => {
                 </span> */}
               {/* </div> */}
             </div>
+            <Button
+              color="white"
+              size="lg"
+              className="w-full border hover:text-blue-600 focus:border-none active::border-none hover:border-blue-600 cursor-pointer transition-all"
+              onClick={() => {
+                navigate(`/quiz/${courseId}`);
+              }}
+            >
+              <HiOutlineBookmark className="mr-2" />
+              Ver introduccion + Quiz introductorio
+            </Button>
             <Button
               color="blue"
               size="lg"
