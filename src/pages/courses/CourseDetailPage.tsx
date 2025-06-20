@@ -79,6 +79,8 @@ const CourseDetailPage = () => {
     }
   }, [courseId, userId!]);
 
+  console.log(course);
+
   const toggleFavorite = async () => {
     if (!course) return;
     setFavLoading(true);
