@@ -133,4 +133,54 @@ export const courseServices = {
       throw error;
     }
   },
+
+  // Añade esta nueva función a tu courseServices
+
+  async getFilteredCourses(filters: {
+    search?: string;
+    category?: string;
+    level?: string[];
+    page?: number;
+    pageSize?: number;
+  }) {
+    try {
+      // Inicializamos params con los valores básicos
+      const params: any = {
+        populate: "*",
+        "pagination[page]": filters.page || 1,
+        "pagination[pageSize]": filters.pageSize || 10,
+        filters: {}, // Asegúrate de inicializar el objeto filters
+      };
+
+      // Filtro de búsqueda
+      if (filters.search) {
+        params.filters["$or"] = [
+          { Title: { $containsi: filters.search } },
+          { Description: { $containsi: filters.search } },
+          { ShortDescription: { $containsi: filters.search } },
+        ];
+      }
+
+      // Filtro de categoría
+      if (filters.category) {
+        params.filters.categories = {
+          name: { $eq: filters.category },
+        };
+      }
+
+      // Filtro de nivel
+      if (filters.level && filters.level.length > 0) {
+        params.filters.Level = { $in: filters.level };
+      }
+
+      const { data } = await strapiApi.get("/courses", { params });
+      return {
+        data: data.data,
+        meta: data.meta,
+      };
+    } catch (error) {
+      console.error("Error fetching filtered courses:", error);
+      throw error;
+    }
+  },
 };
