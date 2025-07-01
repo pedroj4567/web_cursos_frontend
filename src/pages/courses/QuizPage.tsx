@@ -128,11 +128,11 @@ const CursoQuizPage = () => {
       {!videoWatched ? (
         <Card className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold mb-4">Video Introductorio</h2>
-          <div className="aspect-w-16 aspect-h-9 mb-4">
+          <div className=" mb-4">
             <ReactPlayer
               url={courseData.videoIntroductorio}
               width="100%"
-              height="100%"
+              height="400px"
               controls
               onEnded={handleVideoEnd}
             />
