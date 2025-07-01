@@ -14,6 +14,7 @@ import { AuthLayout, StudentsLayout } from "./layouts";
 import { ProtectedRoute } from "./components/protected/ProtectedRouter";
 import { AuthProvider } from "./contexts/AuthContext";
 import CursoQuizPage from "./pages/courses/QuizPage";
+import ReportsPage from "./pages/report/ReportPage";
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
             <Route path="/courses/:id" element={<CourseDetailPage />} />
             <Route path="/quiz/:id" element={<CursoQuizPage />} />
           </Route>
+        </Routes>
+
+        <Routes>
+          <Route path="/report" element={<ReportsPage />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

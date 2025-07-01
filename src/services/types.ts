@@ -11,6 +11,7 @@ export interface User {
   confirmed: boolean;
   createdAt: string;
   updatedAt: string;
+  role: string;
 }
 
 export interface RegisterPayload {

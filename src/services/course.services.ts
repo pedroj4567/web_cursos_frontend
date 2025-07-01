@@ -13,6 +13,32 @@ interface FilterParams {
 }
 
 export const courseServices = {
+  async getCoursesByPageReport({
+    page = 1,
+    pageSize = 10,
+  }: PaginationParams = {}) {
+    try {
+      const { data } = await strapiApi.get("/courses", {
+        params: {
+          populate: "*",
+          pagination: {
+            page,
+            pageSize,
+          },
+        },
+      });
+      console.log(data);
+      return {
+        data: data.data,
+        meta: data.meta,
+      };
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+      throw new Error(
+        "No se pudieron cargar los cursos. Por favor intente más tarde."
+      );
+    }
+  },
   async getCoursesByPage({ page = 1, pageSize = 10 }: PaginationParams = {}) {
     try {
       // Filtros
